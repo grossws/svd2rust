@@ -349,7 +349,7 @@ pub fn gen_peripheral(p: &Peripheral, d: &Defaults) -> Vec<Tokens> {
 
     for register in registers {
         items.extend(gen_register(register, d));
-        if register.has_fields() {
+        if register.fields.is_some() {
             items.extend(gen_register_r(register, d));
             items.extend(gen_register_w(register, d));
         }
